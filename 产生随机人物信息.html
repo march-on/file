@@ -1,0 +1,83 @@
+<html>
+    <meta charset="utf-8"/>
+    <head>
+        <title>util</title>
+
+        <script>
+		//姓名 性别(男女) 年龄(18-35) 城市 工资(2000-12000) 婚否
+		//根据区间段去取随机数， 默认是取0-1的整数 否则产生 >= num1 && <= num2的随机数
+		const getRandomNum = (num1 = 0,num2 = 1) => Math.round(Math.random()* (num2-num1) + num1);
+		//            //完全等效
+		//            function getRandomNum(num1 = 0,num2 = 1){
+		//                return Math.round(Math.random()* (num2-num1) + num1);
+		//            }
+
+		姓
+		const FIRST_NAME = ["张","王","赵","钱","史","丁","谢","孙","李","司马","舔"];
+	
+		
+
+		//男名
+		const MALE_NAME = ["强","土狗","蛋","凌","杜","志强","建国","建军","建华","史"];
+		//女名
+		const FEMALE_NAME = ["花","雪","素芬","菊花","玉凤","香菱","五菱","珍香"];
+		//城市数组
+		const CITY_ARR = ["成都","广州","深圳","香港","澳门","台北","北京","上海"];
+
+
+		//随机姓名
+		const getName = (sex) => {
+			var str = FIRST_NAME[getRandomNum(0,FIRST_NAME.length-1)];
+			
+			if(sex == "男")
+				str += MALE_NAME[getRandomNum(0,MALE_NAME.length-1)];
+			else
+				str += FEMALE_NAME[getRandomNum(0,FEMALE_NAME.length-1)];
+			
+			return str;
+		}
+
+		//随机城市
+		const getCity = () => CITY_ARR[getRandomNum(0,CITY_ARR.length-1)];
+		//随机性别 (0,1)
+		const getSex = () => getRandomNum() == 0 ? '女' : '男';
+		//年龄
+		const getYear = () => getRandomNum(18,35);
+		//工资
+		const getMoney = () => getRandomNum(2000,32000);
+		//婚否 (已婚，未婚)
+		const getMarry = () => getRandomNum() == 0 ? '未婚' : '已婚';
+
+
+
+
+		function getRandomPeople(){
+		   
+			var sexV = getSex();
+			
+			return {
+					sex: sexV,
+					name: getName(sexV),
+					marry: getMarry(),
+					year: getYear(),
+					money: getMoney(),
+					city: getCity()
+				   }
+
+			
+		}
+
+		var arr = [];
+		for(var i = 0; i < 100; i++){
+			arr.push(getRandomPeople());
+		}
+
+		console.log(JSON.stringify(arr));
+		</script>
+    </head>
+
+
+    <body>
+
+    </body>
+</html>

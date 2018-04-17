@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+    <style>
+        #cs {
+            border: 1px solid red;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cs" width="800" height="600"></canvas>
+    <script>
+        window.onload = function () {
+            let cs = document.getElementById("cs");
+            let ctx = cs.getContext("2d");
+            ctx.fillStyle = "green";
+            let head = setTimeout(function () {
+                ctx.arc(200, 200, 80, 0, Math.PI, true);
+                ctx.stroke();
+                ctx.fill();
+                ctx.beginPath();
+                ctx.fillStyle = "black";
+                ctx.arc(170, 180, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(230, 180, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+                ctx.beginPath();
+            }, 500);
+            let tripe = setTimeout(function () {
+                ctx.fillStyle = "green";
+                ctx.rect(120, 210, 160, 150);
+                ctx.fill();
+                ctx.stroke();
+            }, 1000);
+            let foot = setTimeout(function () {
+                ctx.rect(150, 360, 30, 70);
+                ctx.rect(220, 360, 30, 70);
+                ctx.fill();
+                ctx.stroke();
+            }, 1500);
+            let hand = setTimeout(function () {
+                ctx.rect(80, 210, 30, 100);
+                ctx.rect(290, 210, 30, 100);
+                ctx.fill();
+                ctx.stroke();
+            }, 2000);
+            let ear = setTimeout(function () {
+                ctx.beginPath();  
+                ctx.strokeStyle="green";
+                ctx.lineCap="round";
+                ctx.lineWidth = 20;
+                ctx.moveTo(120, 100);
+                ctx.lineTo(140, 140);
+                ctx.moveTo(280, 100);
+                ctx.lineTo(260, 140);
+                ctx.stroke();
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>
