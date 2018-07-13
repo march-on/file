@@ -6,7 +6,6 @@
 
 1.设置镜像地址。
   (外网)淘宝镜像：在命令行中敲入npm config set registry=https://registry.npm.taobao.org
-  (学校局域网)朗沃服务器镜像：在命令行中敲入npm config set registry=http://192.168.8.10:7001
 *** 根据自己的环境设置镜像地址 ***
 
 
